@@ -1,0 +1,26 @@
+name: Build KHI Solvers
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-cpp-serial:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Compile C++ Baseline
+      working-directory: ./src/khi_BASELINE_C++
+      run: make
+
+  build-fortran-omp:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install gfortran and OpenMP
+      run: sudo apt-get install -y gfortran libomp-dev
+    - name: Compile Fortran OpenMP
+      working-directory: ./src/khi_OMP
+      run: bash compile.sh
