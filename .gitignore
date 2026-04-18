@@ -1,0 +1,14 @@
+# Compiled executables
+src/khi_ACC/acc_khi
+src/khi_BASELINE/serial_khi
+src/khi_BASELINE_C++/serial_cpp
+src/khi_CUDA/cuda_khi
+src/khi_OMP/omp_khi
+
+# Compiled objects and modules
+*.o
+*.mod
+
+# Results directory (if you generate large data files)
+results/*
+!results/.gitkeep
